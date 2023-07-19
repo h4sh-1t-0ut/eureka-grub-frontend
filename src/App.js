@@ -11,6 +11,8 @@ import ProtectedIndex from './pages/ProtectedIndex';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
+import Developers from './pages/Developers';
+import ContactUs from './pages/ContactUs';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path='/myrecipes' element={<ProtectedIndex />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<SignIn />} />
+          <Route path='/meetus' element={<Developers />} />
+          <Route path='/contactus' element={<ContactUs />} />
           <Route path='*' element={<NotFound />} />
        </Routes>
       <Footer />

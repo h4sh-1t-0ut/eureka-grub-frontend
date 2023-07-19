@@ -14,7 +14,6 @@ const renderShow = () => {
 describe("<Footer />", () => {
     it("renders names", () => {
         renderShow()
-        screen.logTestingPlaygroundURL()
         const footerNames = screen.getByText(/copyright: brandon shinzato, ricky espinoza, michael ortega/i)
         expect(footerNames).toBeInTheDocument()
     }),

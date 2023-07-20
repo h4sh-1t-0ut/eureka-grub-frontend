@@ -14,7 +14,6 @@ const renderShow = () => {
 describe("<Home />", () => {
     it("renders a header", () => {
         renderShow()
-        screen.logTestingPlaygroundURL()
         const header = screen.getByRole('heading', {
             name: /eurekagrub/i
           })

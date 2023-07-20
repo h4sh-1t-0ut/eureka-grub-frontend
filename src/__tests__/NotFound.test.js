@@ -8,7 +8,6 @@ const renderShow = () => {
             <NotFound />
         </BrowserRouter>  
     ) 
-    screen.logTestingPlaygroundURL()
 }
 
 describe("<NotFound />", () => {

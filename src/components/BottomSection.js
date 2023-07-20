@@ -6,7 +6,7 @@ const fadeImages = [
     "https://secretnyc.co/wp-content/uploads/2021/08/Featured-FFF-NY.jpeg",
     "https://resources.matcha-jp.com/resize/480x2000/2020/09/04-106854.webp",
     "https://i.pinimg.com/originals/ed/43/75/ed43753f960f4ea733d9f94addcfdc25.jpg"
-  ]
+]
 
 const BottomSection = () => {
   return (

@@ -16,7 +16,6 @@ describe("<NotFound />", () => {
         const NotFoundHeader = screen.getByRole('heading', {
             name: /uh oh, you are on fire!/i
           })
-        expect(NotFoundHeader).toBeInTheDocument()
-        
+        expect(NotFoundHeader).toBeInTheDocument()   
     })
 })

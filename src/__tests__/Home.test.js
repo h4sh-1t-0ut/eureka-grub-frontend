@@ -14,9 +14,16 @@ const renderShow = () => {
 describe("<Home />", () => {
     it("renders a header", () => {
         renderShow()
-        const video = screen.getByRole('heading', {
+        screen.logTestingPlaygroundURL()
+        const header = screen.getByRole('heading', {
             name: /eurekagrub/i
           })
+        expect(header).toBeInTheDocument()
+    }),
+
+    it("renders a video", () => {
+        renderShow()
+        const video = screen.getByText(/video here/i)
         expect(video).toBeInTheDocument()
     }),
 

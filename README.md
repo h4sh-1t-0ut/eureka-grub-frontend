@@ -7,3 +7,4 @@
  - installed reactstrap
  - installed react carousel yarn add react-slideshow-image
  - not found/home is minimal testing add tests when adding more components
+ - using mockdata for index, passing props

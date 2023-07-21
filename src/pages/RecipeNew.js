@@ -23,7 +23,7 @@ const RecipeNew = ({createRecipe}) => {
   } 
 
   const handleSubmit = () => {
-    createRecipe(createRecipe)
+    createRecipe(newRecipe)
     navigate("/recipeindex")
   }
 

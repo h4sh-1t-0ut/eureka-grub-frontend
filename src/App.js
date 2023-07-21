@@ -16,9 +16,10 @@ import ContactUs from './pages/ContactUs';
 
 function App() {
 
-  const createRecipe = () => {
+  const createRecipe = (recipe) => {
+    console.log(recipe)
   }
-  
+
   return (
     <>
       <Header />

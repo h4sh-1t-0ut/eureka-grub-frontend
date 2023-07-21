@@ -47,43 +47,40 @@ const RecipeNew = ({createRecipe}) => {
 
         <FormGroup>
           <Label for="cook_time">Cook Time</Label>
-          <Input name="cook_time" type="text" placeholder='Enter Cook Time here' onChange={handleChange} value={RecipeNew.cook_time}></Input>
+          <Input name="cook_time" type="text" placeholder='Enter Cook Time here' onChange={handleChange} value={newRecipe.cook_time}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="ingredients">Ingredients</Label>
-          <Input name="ingredients" type="url" placeholder='Enter required ingredients' onChange={handleChange} value={RecipeNew.image}></Input>
+          <Input name="ingredients" type="url" placeholder='Enter required ingredients' onChange={handleChange} value={newRecipe.image}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="course">Course of the Day</Label>
-          <Input name="course" type="url" placeholder='What type of course is this' onChange={handleChange} value={RecipeNew.cook_time}></Input>
+          <Input name="course" type="url" placeholder='What type of course is this' onChange={handleChange} value={newRecipe.cook_time}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="servings">Servings</Label>
-          <Input name="servings" type="url" placeholder='Enter serving amount' onChange={handleChange} value={RecipeNew.servings}></Input>
+          <Input name="servings" type="url" placeholder='Enter serving amount' onChange={handleChange} value={newRecipe.servings}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="allergies">Allegries</Label>
-          <Input name="allegries" type="url" placeholder='Enter any allergies' onChange={handleChange} value={RecipeNew.allergies}></Input>
+          <Input name="allegries" type="url" placeholder='Enter any allergies' onChange={handleChange} value={newRecipe.allergies}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="tutorial_link">Tutorial Link</Label>
-          <Input name="tutorial_link" type="url" placeholder='Enter a url instructional video' onChange={handleChange} value={RecipeNew.tutorial_link}></Input>
+          <Input name="tutorial_link" type="url" placeholder='Enter a url instructional video' onChange={handleChange} value={newRecipe.tutorial_link}></Input>
         </FormGroup>
 
         <FormGroup>
           <Label for="recipe_image">Recipe Image</Label>
-          <Input name="recipe_image" type="url" placeholder='Enter an image for the recipe' onChange={handleChange} value={RecipeNew.recipe_image}></Input>
+          <Input name="recipe_image" type="url" placeholder='Enter an image for the recipe' onChange={handleChange} value={newRecipe.recipe_image}></Input>
         </FormGroup>
-
-
       </Form>
     </>
-    
   )
 }
 

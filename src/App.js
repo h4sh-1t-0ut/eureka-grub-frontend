@@ -17,7 +17,14 @@ import { useState } from 'react';
 import mockRecipes from './mockRecipes'
 
 function App() {
+
   const [recipes, setRecipes] = useState(mockRecipes)
+
+
+  const createRecipe = (recipe) => {
+    console.log(recipe)
+  }
+
 
   return (
     <>
@@ -27,7 +34,7 @@ function App() {
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
           <Route path='/recipe/:id' element={<RecipeShow />} />
           <Route path='/editrecipe/:id' element={<RecipeEdit />} />
-          <Route path='/newrecipe' element={<RecipeNew />} />
+          <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
           <Route path='/myrecipes' element={<ProtectedIndex />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<SignIn />} />

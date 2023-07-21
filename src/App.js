@@ -13,19 +13,25 @@ import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
 import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
+import { useState } from 'react';
+import mockRecipes from './mockRecipes'
 
 function App() {
+
+  const [recipes, setRecipes] = useState(mockRecipes)
+
 
   const createRecipe = (recipe) => {
     console.log(recipe)
   }
+
 
   return (
     <>
       <Header />
        <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/recipes' element={<RecipeIndex />} />
+          <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
           <Route path='/recipe/:id' element={<RecipeShow />} />
           <Route path='/editrecipe/:id' element={<RecipeEdit />} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />

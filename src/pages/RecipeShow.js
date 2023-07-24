@@ -44,6 +44,7 @@ const RecipeShow = ({ recipes }) => {
                   Edit
               </Button>
             </NavLink>
+            
             <Button onClick={toggleInstructionModal}>
               Instructions
             </Button>

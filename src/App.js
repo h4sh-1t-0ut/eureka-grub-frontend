@@ -14,7 +14,8 @@ import NotFound from './pages/NotFound';
 import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
 import { useState } from 'react';
-import mockRecipes from './mockRecipes'
+import mockRecipes from './mockRecipes';
+
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
-          <Route path='/recipe/:id' element={<RecipeShow />} />
+          <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit />} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
           <Route path='/myrecipes' element={<ProtectedIndex />} />

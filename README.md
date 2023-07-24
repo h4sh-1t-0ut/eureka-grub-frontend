@@ -8,3 +8,4 @@
  - installed react carousel yarn add react-slideshow-image
  - not found/home is minimal testing add tests when adding more components
  - using mockdata for index, passing props
+ - for show using modals to show the instructions/ingredients. Changed the instructions so I can check if those instructions are for that card.

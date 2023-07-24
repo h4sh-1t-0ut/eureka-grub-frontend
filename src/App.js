@@ -15,11 +15,12 @@ import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
 import { useState } from 'react';
 import mockRecipes from './mockRecipes';
-
+import mockUsers from './mockUsers'
 
 function App() {
 
   const [recipes, setRecipes] = useState(mockRecipes)
+  const [currentUser, setCurrentUser] = useState(mockUsers[0])
 
   const signup = () => {
     alert("signed up")
@@ -27,6 +28,11 @@ function App() {
   
   const login = () => {
     alert("logged in")
+  }
+
+  const logout = () => {
+    alert("logged out")
+    return setCurrentUser(null)
   }
 
 
@@ -37,7 +43,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header currentUser={currentUser} logout={logout}/>
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />

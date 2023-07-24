@@ -1,9 +1,8 @@
 import React from 'react'
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, Button } from 'reactstrap';
 
 const ProtectedIndex = ({ recipes, currentUser, deleteRecipeProtectedIndex }) => {
-  const { id } = useParams()
   const myRecipes = recipes?.filter(recipe => currentUser.id === recipe.user_id)
 
   return (
@@ -33,7 +32,7 @@ const ProtectedIndex = ({ recipes, currentUser, deleteRecipeProtectedIndex }) =>
               </Button>
             </NavLink>
             <NavLink to="/myrecipes">
-              <Button onClick={() => deleteRecipeProtectedIndex()}aria-label='Disaster delete'>
+              <Button onClick={() => deleteRecipeProtectedIndex(recipe.id)}aria-label='Disaster delete'>
                   Remove Disaster
               </Button>
             </NavLink>

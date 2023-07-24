@@ -35,7 +35,9 @@ function App() {
     return setCurrentUser(null)
   }
 
-  const deleteRecipeProtectedIndex = () => {
+  const deleteRecipeProtectedIndex = (id) => {
+    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
+    setRecipes(updatedRecipes)
     alert("deleted")
   }
 

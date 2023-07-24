@@ -39,7 +39,11 @@ const RecipeShow = ({ recipes }) => {
                   Back to Recipes
               </Button>
             </NavLink>
-
+            <NavLink to={`/editrecipe/${currentRecipe.id}`}>
+              <Button aria-label='Disaster edit'>
+                  Edit
+              </Button>
+            </NavLink>
             <Button onClick={toggleInstructionModal}>
               Instructions
             </Button>

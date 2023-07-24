@@ -31,11 +31,9 @@ const ProtectedIndex = ({ recipes, currentUser, deleteRecipeProtectedIndex }) =>
                   Disaster Info
               </Button>
             </NavLink>
-            <NavLink to="/myrecipes">
               <Button onClick={() => deleteRecipeProtectedIndex(recipe.id)}aria-label='Disaster delete'>
                   Remove Disaster
               </Button>
-            </NavLink>
           </CardBody>
         </Card>
       )

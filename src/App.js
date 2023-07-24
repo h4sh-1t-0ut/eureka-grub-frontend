@@ -35,6 +35,9 @@ function App() {
     return setCurrentUser(null)
   }
 
+  const deleteRecipeProtectedIndex = () => {
+    alert("deleted")
+  }
 
   const createRecipe = (recipe) => {
     console.log(recipe)
@@ -50,7 +53,7 @@ function App() {
           <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit />} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
-          <Route path='/myrecipes' element={<ProtectedIndex />} />
+          <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />
           <Route path='/signup' element={<SignUp signup={signup} />} />
           <Route path='/login' element={<SignIn login={login} />} />
           <Route path='/meetus' element={<Developers />} />

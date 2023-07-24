@@ -1,0 +1,135 @@
+
+img{
+    width: 100%;
+}
+
+.social-links{
+    margin: 24px 0;
+}
+
+.card-container{
+  display: flex;
+  background-color: #000;
+  padding: 120px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardSlot{
+  display: flex;
+
+  margin: auto;
+}
+
+.cardSlot > div{
+  flex: 1;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 275px;
+    height: 100%;
+
+    text-align: center;
+    font-family: arial;
+    border-radius: 5px;
+}
+
+.title {
+    color: grey;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+    border-radius: 50px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(1, 65, 226);
+    padding: 10px;
+}
+
+.think-bubbles{
+    background: url('http://forums.crackberry.com/attachments/blackberry-10-wallpapers-f308/137432d1361639896t-z10-wallpaper-set-z10-music.jpg');
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
+}
+
+.speech-wrapper{
+  padding: 30px 40px;
+  .bubble{
+    width: 240px;
+    height: auto;
+    display: block;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 2px 8px 5px #000;
+    position: relative;
+    margin: 0 0 25px;
+    &.alt{
+      margin: 0 0 0 60px;
+    }
+    .txt{
+      padding: 8px 55px 8px 14px;
+      .name{
+        font-weight: 600;
+        font-size: 16px;
+        margin: 0 0 4px;
+        color: #3498db;
+        span{
+          font-weight: normal;
+          color: #b3b3b3;
+        }
+        &.alt{
+          color: #2ecc71;
+        }
+      }
+      .message{
+        font-size: 12px;
+        margin: 0;
+        color: #2b2b2b;
+      }
+    }
+    .bubble-arrow {
+      position: absolute;
+      width: 0;
+      bottom:42px;
+      left: -16px;
+      height: 0;
+      &.alt{
+        right: -2px;      
+        bottom: 40px;
+        left: auto;
+      }
+    }
+    .bubble-arrow:after {
+      content: "";
+      position: absolute;
+      border: 0 solid transparent;
+      border-top: 9px solid #f5f5f5;
+      border-radius: 0 20px 0;
+      width: 15px;
+      height: 30px;
+      transform: rotate(145deg);
+    }
+    .bubble-arrow.alt:after {
+      transform: rotate(45deg) scaleY(-1);
+    }
+  }
+
+  
+}

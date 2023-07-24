@@ -21,6 +21,14 @@ function App() {
 
   const [recipes, setRecipes] = useState(mockRecipes)
 
+  const signup = () => {
+    alert("signed up")
+  }
+  
+  const login = () => {
+    alert("logged in")
+  }
+
 
   const createRecipe = (recipe) => {
     console.log(recipe)
@@ -37,8 +45,8 @@ function App() {
           <Route path='/editrecipe/:id' element={<RecipeEdit />} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
           <Route path='/myrecipes' element={<ProtectedIndex />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp signup={signup} />} />
+          <Route path='/login' element={<SignIn login={login} />} />
           <Route path='/meetus' element={<Developers />} />
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='*' element={<NotFound />} />

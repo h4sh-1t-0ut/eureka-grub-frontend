@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Button } from 'reactstrap';
+
 
 export const DeveloperItem = ({
 	image,
@@ -25,7 +28,11 @@ export const DeveloperItem = ({
 
 							<a href={github} target="_blank" rel="noreferrer"><i className="fa fa-github"></i></a> 
 						</div>
-						<p><button>Contact</button></p>
+						<NavLink to={'/contactus'}>
+							<Button aria-label='Disaster Info'>
+								Talk to Me!
+							</Button>
+						</NavLink>
 				</div>
 
 				<div className='think-bubbles'>

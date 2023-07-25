@@ -45,7 +45,9 @@ function App() {
     console.log(recipe)
   }
 
-  const updateRecipe = () => {
+  const updateRecipe = (recipe, id) => {
+    console.log(recipe)
+    console.log(id)
     alert("updated")
   }
 

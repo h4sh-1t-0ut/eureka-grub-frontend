@@ -22,10 +22,10 @@ const SignUp = ({signup}) => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit} aria-label='form'>
         Email: <input type="email" name="email" placeholder="ex@example.com" />
-        Password: <input type="password" name="password" placeholder="password" />
-        Confirm Password: <input type="password" name="password_confirmation" placeholder="confirm password" />
+        Password: <input type="password" name="password" placeholder="password" aria-label='password'/>
+        Confirm Password: <input type="password" name="password_confirmation" placeholder="confirm password" aria-label='confirm_password'/>
         <input type="submit" value="Submit" />
       </form>
     </>

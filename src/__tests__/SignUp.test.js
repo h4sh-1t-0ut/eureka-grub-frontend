@@ -1,13 +1,15 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import SignUp from '../pages/SignUp';
 
 const renderShow = () => {
+  const mockSignUp = jest.fn()
     render(
         <BrowserRouter>
-            <SignUp />
+            <SignUp signup={mockSignUp}/>
         </BrowserRouter>
     ) 
+    return {mockSignUp}
 }
 
 describe("<SignUp />", () => {
@@ -27,5 +29,15 @@ describe("<SignUp />", () => {
     renderShow()
     const emailInput = screen.getAllByPlaceholderText(/ex@example.com/i)
     expect(emailInput).toHaveLength(1)
+  }),
+
+  it("submits the form email and password values with a mock function for signup", () => {
+    const { mockSignUp } = renderShow()
+    const formElement = screen.getByRole('form')
+    fireEvent.change(screen.getByPlaceholderText(/ex@example.com/i))
+    fireEvent.change(screen.getByLabelText('password'))
+    fireEvent.change(screen.getByLabelText('confirm_password'))
+    fireEvent.submit(formElement)
+    expect(mockSignUp).toHaveBeenCalled()
   })
 })

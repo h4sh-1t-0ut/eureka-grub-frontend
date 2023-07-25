@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const RecipeEdit = () => {
+  
+
   return (
-    <div>RecipeEdit</div>
+    <div>recipe edit</div>
   )
 }
 

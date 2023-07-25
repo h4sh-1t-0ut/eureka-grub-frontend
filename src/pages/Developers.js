@@ -1,7 +1,7 @@
 import React from 'react';
 import { DevelopersList } from '../helpers/DevelopersList';
 import { DeveloperItem } from '../components/DeveloperItem';
-import './Developers.css';
+import '../styles/Developers.css';
 
 const Developers = () => {
   return (

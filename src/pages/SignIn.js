@@ -22,7 +22,7 @@ const SignIn = ({login}) => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit} aria-label='form'>
         Email: <input type="email" name="email" placeholder="ex@example.com"/>
         Password: <input type="password" name="password" placeholder='password'/>
         <input type='submit' value="Submit" />

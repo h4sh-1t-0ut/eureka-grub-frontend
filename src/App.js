@@ -45,6 +45,10 @@ function App() {
     console.log(recipe)
   }
 
+  const updateRecipe = () => {
+    alert("updated")
+  }
+
 
   return (
     <>
@@ -53,7 +57,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
           <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
-          <Route path='/editrecipe/:id' element={<RecipeEdit />} />
+          <Route path='/editrecipe/:id' element={<RecipeEdit recipes={recipes} updateRecipe={updateRecipe}/>} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
           <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />
           <Route path='/signup' element={<SignUp signup={signup} />} />

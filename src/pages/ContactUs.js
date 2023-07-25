@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/ContactUs.css"
-import emailjs from "emailjs-com"
+
 
 const ContactUs = () => {
 

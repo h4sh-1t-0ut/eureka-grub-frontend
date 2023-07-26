@@ -9,9 +9,10 @@ const fadeImages = [
 ]
 
 const BottomSection = () => {
+
   return (
     <>
-     <div className="slide-container1">
+    <div className="slide-container1">
       <Fade>
         <div className="each-fade">
           <img src={fadeImages[0]} alt='Dessert'/>

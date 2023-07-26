@@ -1,0 +1,28 @@
+.top-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.content{
+    text-align: center;
+}
+.content h1{
+    font-size: 100px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.content p{
+    font-size: 30px;
+    color: #fff;
+    display: inline;
+}

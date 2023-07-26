@@ -10,7 +10,7 @@ const ContactUs = () => {
         className="leftSide"
     ></div>
     <div className="rightSide">
-        <h1> Contact Me</h1>
+        <h1> Contact Us</h1>
 
         <form id="contact-form" >
         <label htmlFor="name">Full Name</label>

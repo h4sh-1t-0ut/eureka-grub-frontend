@@ -12,10 +12,10 @@ const renderShow = () => {
 }
 
 describe("<Home />", () => {
-    it("renders a contact form header for Conact Us page", () => {
+    it("renders a contact form header for Contact Us page", () => {
         renderShow()
         const contactFormHeader = screen.getByRole('heading', {
-            name: /contact me/i
+            name: /contact us/i
         })
         expect(contactFormHeader).toBeInTheDocument()
     })

@@ -9,8 +9,8 @@ const Header = ({ currentUser, logout }) => {
   const handleLogOut = () => {
     logout()
     navigate('/')
-
   }
+  
   return (
     <>
      <nav className="navbar">

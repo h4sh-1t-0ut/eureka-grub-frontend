@@ -13,7 +13,7 @@ import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
 import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
@@ -101,11 +101,22 @@ function App() {
     console.log(recipe)
   }
 
-  const updateRecipe = (recipe, id) => {
-    console.log(recipe)
-    console.log(id)
-    alert("updated")
+  const updateRecipe = (recipe) => {
+    fetch(`${url}`, {
+    body: JSON.stringify(recipe),
+
+    header: {
+      "Content-Type": "application/json"
+    },
+    method: "PATCH"
+    })
+    .then((response) => response.json())
+    .then((payload) => readRecipe())
+    .catch((errors) => console.log("Recipe update errors:", errors))
+
   }
+
+
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token")
@@ -121,7 +132,7 @@ function App() {
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
-          <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
+          <Route path='/recipe/:id' element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit recipes={recipes} updateRecipe={updateRecipe}/>} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
           <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />

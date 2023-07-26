@@ -14,13 +14,11 @@ import NotFound from './pages/NotFound';
 import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
 import { useState } from 'react';
-import mockRecipes from './mockRecipes';
-import mockUsers from './mockUsers'
 
 function App() {
 
-  const [recipes, setRecipes] = useState(mockRecipes)
-  const [currentUser, setCurrentUser] = useState(mockUsers[0])
+  const [recipes, setRecipes] = useState([])
+  const [currentUser, setCurrentUser] = useState(null)
   
   const url = "https://eureka-grub.onrender.com/"
 
@@ -84,6 +82,15 @@ function App() {
     .catch(error => console.log("log out errors: ", error))
   }
 
+  const readRecipe = () => {
+    fetch(`${url}`)
+      .then((response) => response.json())
+      .then((payload) => {
+        setRecipes(payload)
+      })
+      .catch((error) => console.log(error))
+  }
+
   const deleteRecipeProtectedIndex = (id) => {
     const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
     setRecipes(updatedRecipes)
@@ -105,7 +112,8 @@ function App() {
     if (loggedInUser) {
       setCurrentUser(loggedInUser)
     }
-  })
+    readRecipe()
+  }, [])
 
   return (
     <>

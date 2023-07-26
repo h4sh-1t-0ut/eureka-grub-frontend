@@ -40,6 +40,12 @@ const Header = ({ currentUser, logout }) => {
                   </li>
 
                   <li className="nav-item">
+                  <Link to='/newrecipe' className="nav-links" onClick={closeMobileMenu}>
+                      Create Recipe
+                  </Link>
+                  </li>
+
+                  <li className="nav-item">
                   <Link className="nav-links" onClick={handleLogOut}>
                       Log Out
                   </Link>

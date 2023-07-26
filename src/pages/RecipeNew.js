@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 
-const RecipeNew = ({createRecipe}) => {
+const RecipeNew = ({createRecipe, currentUser }) => {
 
   const navigate = useNavigate()
 
@@ -16,6 +16,7 @@ const RecipeNew = ({createRecipe}) => {
     allergies: "",
     tutorial_link: "",
     recipe_image: "",
+    user_id: currentUser?.id
   })
 
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ const RecipeNew = ({createRecipe}) => {
 
   const handleSubmit = () => {
     createRecipe(newRecipe)
-    navigate("/recipeindex")
+    navigate("/recipes")
   }
 
   return (
@@ -57,7 +58,7 @@ const RecipeNew = ({createRecipe}) => {
 
         <FormGroup>
           <Label for="course">Course of the Day</Label>
-          <Input name="course" type="url" placeholder='What type of course is this' onChange={handleChange} value={newRecipe.cook_time}></Input>
+          <Input name="course" type="url" placeholder='What type of course is this' onChange={handleChange} value={newRecipe.course}></Input>
         </FormGroup>
 
         <FormGroup>
@@ -67,7 +68,7 @@ const RecipeNew = ({createRecipe}) => {
 
         <FormGroup>
           <Label for="allergies">Allegries</Label>
-          <Input name="allegries" type="url" placeholder='Enter any allergies' onChange={handleChange} value={newRecipe.allergies}></Input>
+          <Input name="allergies" type="url" placeholder='Enter any allergies' onChange={handleChange} value={newRecipe.allergies}></Input>
         </FormGroup>
 
         <FormGroup>

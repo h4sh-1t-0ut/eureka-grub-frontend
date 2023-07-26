@@ -13,14 +13,14 @@ import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
 import Developers from './pages/Developers';
 import ContactUs from './pages/ContactUs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   
-  const url = "https://eureka-grub.onrender.com/"
+  const url = "http://localhost:3000/"
 
   const signup = (userInfo) => {
     fetch(`${url}/signup`, {
@@ -83,7 +83,7 @@ function App() {
   }
 
   const readRecipe = () => {
-    fetch(`${url}`)
+    fetch(`${url}/recipes`)
       .then((response) => response.json())
       .then((payload) => {
         setRecipes(payload)
@@ -91,20 +91,29 @@ function App() {
       .catch((error) => console.log(error))
   }
 
-  const deleteRecipeProtectedIndex = (id) => {
-    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
-    setRecipes(updatedRecipes)
-    alert("deleted")
+  const createRecipe = (recipes) => {
+    fetch(`${url}/recipes`, {
+      body: JSON.stringify(recipes),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => readRecipe())
+    .catch((errors) => console.log("Recipe create errors:", errors))
   }
-
-  const createRecipe = (recipe) => {
-    console.log(recipe)
-  }
-
+  
   const updateRecipe = (recipe, id) => {
     console.log(recipe)
     console.log(id)
     alert("updated")
+  }
+  
+  const deleteRecipeProtectedIndex = (id) => {
+    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
+    setRecipes(updatedRecipes)
+    alert("deleted")
   }
 
   useEffect(() => {
@@ -123,7 +132,7 @@ function App() {
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
           <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit recipes={recipes} updateRecipe={updateRecipe}/>} />
-          <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} />} />
+          <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser}/>} />
           <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />
           <Route path='/signup' element={<SignUp signup={signup} />} />
           <Route path='/login' element={<SignIn login={login} />} />

@@ -91,20 +91,29 @@ function App() {
       .catch((error) => console.log(error))
   }
 
-  const deleteRecipeProtectedIndex = (id) => {
-    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
-    setRecipes(updatedRecipes)
-    alert("deleted")
-  }
-
   const createRecipe = (recipe) => {
-    console.log(recipe)
+    fetch(`${url}`, {
+      body: JSON.stringify(recipe),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => read())
+    .catch((errors) => console.log("Cat create errors:", errors))
   }
-
+  
   const updateRecipe = (recipe, id) => {
     console.log(recipe)
     console.log(id)
     alert("updated")
+  }
+  
+  const deleteRecipeProtectedIndex = (id) => {
+    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
+    setRecipes(updatedRecipes)
+    alert("deleted")
   }
 
   useEffect(() => {

@@ -21,18 +21,67 @@ function App() {
 
   const [recipes, setRecipes] = useState(mockRecipes)
   const [currentUser, setCurrentUser] = useState(mockUsers[0])
+  
+  const url = "https://eureka-grub.onrender.com/"
 
-  const signup = () => {
-    alert("signed up")
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+        if (!response.ok) {
+        throw Error(response.statusText)
+      }
+    localStorage.setItem("token", response.headers.get("Authorization"))
+    return response.json()
+    })
+    .then(payload => {
+      setCurrentUser(payload)
+    })
+    .catch(error => console.log("login errors: ", error))
   }
   
-  const login = () => {
-    alert("logged in")
+  const login = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then(payload => {
+      setCurrentUser(payload)
+    })
+    .catch(error => console.log("login errors: ", error))
   }
 
   const logout = () => {
-    alert("logged out")
-    return setCurrentUser(null)
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token")
+      },
+      method: "DELETE"
+    })
+    .then(() => {
+      localStorage.removeItem("token")
+      setCurrentUser(null)
+    })
+    .catch(error => console.log("log out errors: ", error))
   }
 
   const deleteRecipeProtectedIndex = (id) => {
@@ -51,6 +100,12 @@ function App() {
     alert("updated")
   }
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("token")
+    if (loggedInUser) {
+      setCurrentUser(loggedInUser)
+    }
+  })
 
   return (
     <>

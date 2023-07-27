@@ -20,7 +20,7 @@ function App() {
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   
-  const url = "http://localhost:3000/"
+  const url = "http://localhost:3000"
 
   const signup = (userInfo) => {
     fetch(`${url}/signup`, {
@@ -105,9 +105,28 @@ function App() {
   }
   
   const updateRecipe = (recipe, id) => {
-    console.log(recipe)
-    console.log(id)
-    alert("updated")
+    fetch(`${url}/recipes/${id}`, {
+      body: JSON.stringify(recipe),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+      .then((response) => response.json())
+      .then(() => readRecipe())
+      .catch((errors) => console.log("Recipe update errors:", errors))
+  }
+
+  const deleteRecipe = (id) => {
+    fetch(`${url}/recipes/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then(() => readRecipe())
+      .catch((errors) => console.log("delete errors:", errors))
   }
   
   const deleteRecipeProtectedIndex = (id) => {
@@ -130,7 +149,7 @@ function App() {
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
-          <Route path='/recipe/:id' element={<RecipeShow recipes={recipes}/>} />
+          <Route path='/recipe/:id' element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit recipes={recipes} updateRecipe={updateRecipe}/>} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser}/>} />
           <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />

@@ -9,7 +9,7 @@ const SearchBar = ({ recipes, onSearchChange }) => {
     const filteredResults =
       recipes.filter((recipe) =>
         recipe.name.toLowerCase().includes(e.target.value.toLowerCase())
-      );
+      )
     onSearchChange(filteredResults)
   }
   
@@ -18,7 +18,7 @@ const SearchBar = ({ recipes, onSearchChange }) => {
       <div>
         <input
           type="text"
-          placeholder="Search here"
+          placeholder="Search Disasters"
           onChange={handleChange}
           value={searchInput} />
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-const RecipeShow = ({ recipes }) => {
+const RecipeShow = ({ recipes, deleteRecipe }) => {
   const [instructionModal, setInstructionModal] = useState(false)
   const [ingredientsModal, setIngredientsModal] = useState(false)
 
@@ -42,6 +42,11 @@ const RecipeShow = ({ recipes }) => {
             <NavLink to={`/editrecipe/${currentRecipe.id}`}>
               <Button aria-label='Disaster edit'>
                   Edit
+              </Button>
+            </NavLink>
+            <NavLink to={'/recipes'}>
+              <Button aria-label='Disaster delete' onClick={() => {deleteRecipe(id)}}>
+                  Delete Disaster
               </Button>
             </NavLink>
             

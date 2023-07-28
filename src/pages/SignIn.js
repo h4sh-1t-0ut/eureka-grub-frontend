@@ -7,10 +7,10 @@ const SignIn = ({ login }) => {
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const formData = new FormData(formRef.current);
-    const data = Object.fromEntries(formData);
+    const formData = new FormData(formRef.current)
+    const data = Object.fromEntries(formData)
     const userInfo = {
       user: { email: data.email, password: data.password }
     }

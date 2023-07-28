@@ -28,7 +28,7 @@ const SignIn = ({ login }) => {
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="user-box">
             <input type="text" name="email" aria-label='username' required />
-            <label>Username</label>
+            <label>User Email</label>
           </div>
           <div className="user-box">
             <input type="password" name="password" aria-label='password' required />

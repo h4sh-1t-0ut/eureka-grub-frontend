@@ -1,0 +1,28 @@
+#indexBody {
+    background-color: #FFD6A5;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+#searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+.indexHeading{
+    text-align: center;
+}
+
+input {
+    border-radius: 100px;
+    height: 3em;
+    width: 30em;
+}
+
+.indexCards {
+    display: flex;
+    justify-content: space-around;
+}

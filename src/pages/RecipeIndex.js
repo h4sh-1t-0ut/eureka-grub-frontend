@@ -1,4 +1,5 @@
 import {React, useState}from 'react';
+import "../styles/RecipeIndex.css"
 import SearchBar from '../components/SearchBar';
 import { NavLink, Link } from 'react-router-dom';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, Button } from 'reactstrap';
@@ -12,19 +13,23 @@ const RecipeIndex = ({ recipes }) => {
   
   return (
     <>
+    <div id="indexBody">
     <h1>Disaster Recipes</h1>
+    <br/>
     <SearchBar recipes={recipes} onSearchChange={handleSearchChange}/>
-
+    <br/>
+   
     <div>
      <div className="indexHeading">
         <h2>Desserts</h2>
         <p>HMMMMM DIABETES</p>
       </div>
+      <br/>
       <div className="indexCards">
         {filteredRecipes.map((recipe, index) => {
           if (recipe.course === 'Dessert') {
             return (
-              <Link to={"/contactus"}>
+             
               <Card key={index} style={{ width: '16rem' }} outline color='dark'>
                 <img alt={recipe.name} src={recipe.recipe_image} />
                 <CardBody>
@@ -48,16 +53,19 @@ const RecipeIndex = ({ recipes }) => {
                   </NavLink>
                 </CardBody>
               </Card>
-              </Link>
+             
             )
           }
           return null
         })}
+      <br/>
       </div>
       <div className="indexHeading">
         <h2>Belly Fillers</h2>
         <p>Sensory indulgence unlocked</p>
       </div>
+      <br/>
+
       <div className="indexCards">
         {filteredRecipes.map((recipe, index) => {
           if (recipe.course === 'Appetizer') {
@@ -87,13 +95,16 @@ const RecipeIndex = ({ recipes }) => {
               </Card>
             )
           }
+      
           return null
         })}
+      <br/>
       </div>
       <div className="indexHeading">
         <h2>Drinkies</h2>
         <p>Boba? no boba?</p>
       </div>
+      <br/>
       <div className="indexCards">
         {filteredRecipes.map((recipe, index) => {
           if (recipe.course === "Beverage") {
@@ -125,7 +136,10 @@ const RecipeIndex = ({ recipes }) => {
           }
           return null
         })}
-      </div>
+        <br/>
+        <br/>
+    </div>
+    </div>
     </div>
     </>
   )

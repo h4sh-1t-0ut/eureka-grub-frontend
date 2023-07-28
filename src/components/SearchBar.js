@@ -15,7 +15,7 @@ const SearchBar = ({ recipes, onSearchChange }) => {
   
   return (
     <>
-      <div>
+      <div id="searchBar">
         <input
           type="text"
           placeholder="Search Disasters"

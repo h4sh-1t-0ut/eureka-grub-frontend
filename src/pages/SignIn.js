@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/SignInUp.css';
 
-const SignIn = ({login}) => {
+const SignIn = ({ login }) => {
   const formRef = useRef()
   const navigate = useNavigate()
 
@@ -14,7 +15,7 @@ const SignIn = ({login}) => {
     const userInfo = {
       "user": { email: data.email, password: data.password }
     }
-    
+
     login(userInfo)
     navigate('/')
     e.target.reset()
@@ -22,13 +23,26 @@ const SignIn = ({login}) => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit} aria-label='form'>
-        Email: <input type="email" name="email" placeholder="ex@example.com"/>
-        Password: <input type="password" name="password" placeholder='password'/>
-        <input type='submit' value="Submit" />
-      </form>
+    <div className='background'>
+      <div className="login-box">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit} ref={formRef}>
+          <div className="user-box">
+            <input type="text" name="email" aria-label='username' required />
+            <label>User Email</label>
+          </div>
+          <div className="user-box">
+            <input type="password" name="password" aria-label='password' required />
+            <label>Password</label>
+          </div>
+          <button type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
     </>
   )
 }
 
-export default SignIn
+export default SignIn;

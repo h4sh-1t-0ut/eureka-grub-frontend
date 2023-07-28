@@ -129,18 +129,6 @@ function App() {
       .catch((errors) => console.log("delete errors:", errors))
   }
 
-  const deleteRecipe = (id) => {
-    fetch(`${url}/recipes/${id}`, {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "DELETE"
-    })
-      .then((response) => response.json())
-      .then(() => readRecipe())
-      .catch((errors) => console.log("delete errors:", errors))
-  }
-  
   const deleteRecipeProtectedIndex = (id) => {
     const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
     setRecipes(updatedRecipes)

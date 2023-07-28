@@ -8,16 +8,17 @@
 
 /* ___________ HEADER minimum fix during style card___________ */
 
-.navbar {
+.header {
   background: #dd431e;
   height: 65px;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 999;
-  border-radius: 10px;
 }
 
 nav.navbar {
@@ -38,9 +39,10 @@ nav.navbar {
   grid-gap: 7px;
   list-style: none;
   text-align: center;
-  width: 60vw;
+  width: 100vw;
   justify-content: end;
   margin-right: 2rem;
+  padding-top: 20px;
 }
 
 .nav-item {
@@ -58,11 +60,17 @@ nav.navbar {
 
 .nav-links:hover {
   border-bottom: 4px solid #fff;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .fa-bars {
   color: #fff;
+}
+
+.fa-spin {
+  animation: spin 0.4s normal;
+  animation-fill-mode: backwards; 
+  transition: opacity 2s ease-out; 
 }
 .fa-circle-xmark {
   color: white;
@@ -90,6 +98,7 @@ nav.navbar {
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
+    align-items: center;
   }
 
   .nav-menu.active {
@@ -98,17 +107,22 @@ nav.navbar {
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    height: 60vh;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .nav-links {
     text-align: center;
     padding: 2rem;
-    width: 100%;
+    width: 110vw;
     display: table;
   }
 
   .nav-links:hover {
-    background-color: #242424;
+    background-color: #fafafa;
     color: #242424;
     border-radius: 0;
   }
@@ -147,11 +161,19 @@ nav.navbar {
 
   .nav-links-mobile:hover {
     background: #fff;
-    color: #242424;
+    color: #ffffff;
     transition: 250ms;
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* ___________ FOOTER Minimum fix during style card___________ */
 
 .footer-container {
@@ -166,7 +188,6 @@ nav.navbar {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: 10px;
 }
 
 div.footer-links {

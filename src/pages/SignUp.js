@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/SignInUp.css';
 
 const SignUp = ({signup}) => {
   const formRef = useRef()
@@ -22,12 +23,28 @@ const SignUp = ({signup}) => {
 
   return (
     <>
-      <form ref={formRef} onSubmit={handleSubmit} aria-label='form'>
-        Email: <input type="email" name="email" placeholder="ex@example.com" />
-        Password: <input type="password" name="password" placeholder="password" aria-label='password'/>
-        Confirm Password: <input type="password" name="password_confirmation" placeholder="confirm password" aria-label='confirm_password'/>
-        <input type="submit" value="Submit" />
-      </form>
+    <div className='background'>
+      <div className="login-box">
+        <h2>Sign Up</h2>
+        <form onSubmit={handleSubmit} ref={formRef}>
+          <div className="user-box">
+            <input type="text" name="email" aria-label='username' required />
+            <label>Username</label>
+          </div>
+          <div className="user-box">
+            <input type="password" name="password" aria-label='password' required />
+            <label>Password</label>
+          </div>
+          <div className="user-box">
+            <input type="password" name="password" aria-label='confirm_password' required />
+            <label>Confirm Password</label>
+          </div>
+          <button type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
     </>
   )
 }

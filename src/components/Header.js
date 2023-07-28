@@ -11,13 +11,14 @@ const Header = ({ currentUser, logout }) => {
     navigate('/')
   }
   
+  
   return (
     <>
-     <nav className="navbar">
+     <nav className="header">
           <div className="navbar-container">
 
               <div className='menu-icon' onClick={handleClick}>
-                  <i className = {click ? 'fa-regular fa-circle-xmark' : 'fa-solid fa-bars'} />
+                  <i className = {`fa-solid ${click ? 'fa-circle-xmark' : 'fa-bars'} ${click ? 'fa-spin' : false}`} />
               </div>
               {currentUser && (
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>

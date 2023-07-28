@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/SignInUp.css';
 
-const SignUp = ({signup}) => {
+const SignUp = ({ signup }) => {
   const formRef = useRef()
   const navigate = useNavigate()
 

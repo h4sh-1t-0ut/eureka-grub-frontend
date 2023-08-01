@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import '../styles/RecipeNew.css'
 
 const RecipeEdit = ({recipes, updateRecipe}) => {
 	const { id } = useParams()
@@ -31,6 +32,10 @@ const RecipeEdit = ({recipes, updateRecipe}) => {
 	}
 
 	return (
+		<>
+		<div>
+      <div className='form'>
+			<h2>Update this Disaster</h2>
 		<Form>
 			<FormGroup>
 					<Label for="name">Name</Label>
@@ -38,8 +43,10 @@ const RecipeEdit = ({recipes, updateRecipe}) => {
 			</FormGroup>
 
 			<FormGroup>
-				<Label for="instructions">Instructions</Label>
-				<Input name="instructions" type="text" placeholder="Change the instructions to the recipe" onChange={handleChange} value={editRecipe.instructions}></Input>
+			<div className='textarea-container'>
+          <Label for="instructions">Instructions</Label>
+          <textarea name="instructions" type="text" placeholder='Enter instructions here' onChange={handleChange} value={editRecipe.instructions}></textarea>
+          </div>
 			</FormGroup>
 
 			<FormGroup>
@@ -78,9 +85,12 @@ const RecipeEdit = ({recipes, updateRecipe}) => {
 			</FormGroup>
 
 			<Button onClick={handleSubmit}>
-				Submit updated recipe
+				Update Recipe
 			</Button>
 		</Form>
+		</div>
+		</div>
+		</>
 	)
 }
 export default RecipeEdit

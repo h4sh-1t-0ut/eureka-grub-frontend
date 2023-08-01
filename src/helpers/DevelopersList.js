@@ -12,7 +12,7 @@ export const DevelopersList = [
         tech_stack: ["JavaScript", "React", "Ruby", "Ruby on Rails", "CSS", "HTML" ]
     },
     {
-        image: "https://media.licdn.com/dms/image/D4E35AQFqWbSLGdg62g/profile-framedphoto-shrink_800_800/0/1687481362191?e=1690826400&v=beta&t=SoB_XthC0RlDnSqFA5JhHT75NFqSBvP0zdHiYZfkV8I",
+        image: "https://avatars.githubusercontent.com/u/119902441?v=4",
         name: "Michael Ortega", 
         title: "Technical Lead",
         association: "LEARN Academy Delta 2023",

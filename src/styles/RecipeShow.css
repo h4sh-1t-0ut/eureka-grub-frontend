@@ -1,0 +1,40 @@
+#indexBody {
+  background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?cs=srgb&dl=pexels-lukas-616401.jpg&fm=jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+   height: 100vh;
+   margin: 0;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#searchBar {
+  display: flex;
+  justify-content: center;
+}
+
+.indexHeading{
+  text-align: center;
+}
+
+input {
+  border-radius: 100px;
+  height: 3em;
+  width: 30em;
+}
+
+.indexCards {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 100px;
+
+}
+
+img {
+  height: 250px;
+  width: 150px;
+}

@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, Button } from 'reactstrap';
 
-const ProtectedIndex = ({ recipes, currentUser, deleteRecipeProtectedIndex }) => {
-  const myRecipes = recipes?.filter(recipe => currentUser.id === recipe.user_id)
+
+const ProtectedIndex = ({ protectedRecipes, currentUser, deleteRecipeProtectedIndex }) => {
+
+
+  const myRecipes = protectedRecipes?.filter(recipe => currentUser.id === recipe.user_id)
+
+
+  useEffect(() => {
+  }, [protectedRecipes])
 
   return (
     <>
-    <h1>Your Disaster Recipes</h1>
+    <div id="indexBody">
+    <div className="indexHeading">
+        <h2>All Recipes</h2>
+        <p>List of All disaster recipes</p>
+      </div>
+      <div className="indexCards">
     {myRecipes?.map((recipe, index) => {
       return (
         <Card key={index} style={{width: '16rem'}} outline color='dark'>
@@ -31,13 +43,15 @@ const ProtectedIndex = ({ recipes, currentUser, deleteRecipeProtectedIndex }) =>
                   Disaster Info
               </Button>
             </NavLink>
-              <Button onClick={() => deleteRecipeProtectedIndex(recipe.id)}aria-label='Disaster delete'>
+              <Button onClick={() => deleteRecipeProtectedIndex(recipe.id)} aria-label='Disaster delete'>
                   Remove Disaster
               </Button>
           </CardBody>
         </Card>
       )
     })}
+    </div>
+    </div>
     </>
   )
 }

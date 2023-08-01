@@ -1,10 +1,18 @@
 #indexBody {
+    background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?cs=srgb&dl=pexels-lukas-616401.jpg&fm=jpg");
     background-color: #FFD6A5;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+     height: 100vh;
+     margin: 0;
+    padding-top: 75px;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    border-radius: 100px;
 }
 
 #searchBar {
@@ -16,13 +24,22 @@ h1 {
     text-align: center;
 }
 
-input {
-    border-radius: 100px;
-    height: 3em;
-    width: 30em;
-}
+#indexNameInput {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    width: 33%;
+    text-align: center;
+  }
 
 .indexCards {
     display: flex;
     justify-content: space-around;
+    padding-bottom: 100px;
+
+}
+
+img {
+    height: 250px;
+    width: 150px;
 }

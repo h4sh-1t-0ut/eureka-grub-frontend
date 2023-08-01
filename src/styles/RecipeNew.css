@@ -1,0 +1,18 @@
+.form{
+  background-color: black;
+  justify-content: center;
+  width: 100%;
+  padding: 80px;
+}
+.form input{
+  width: 50%;
+}
+.form h2{
+  color: white;
+  text-align: center;
+}
+.textarea-container{
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+}

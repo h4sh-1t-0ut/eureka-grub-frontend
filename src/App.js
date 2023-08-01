@@ -19,8 +19,9 @@ function App() {
 
   const [recipes, setRecipes] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+  const [protectedRecipes, setProtectedRecipes] = useState([])
   
-  const url = "http://localhost:3000"
+  const url = "https://eureka-grub.onrender.com"
 
   const signup = (userInfo) => {
     fetch(`${url}/signup`, {
@@ -130,9 +131,23 @@ function App() {
   }
 
   const deleteRecipeProtectedIndex = (id) => {
-    const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
-    setRecipes(updatedRecipes)
-    alert("deleted")
+    console.log("Recipe id to delete:", id);
+    const updatedProtectedRecipes = protectedRecipes.filter(
+      (recipe) => recipe.id !== id
+    )
+    console.log("Updated protected recipes after deletion:", updatedProtectedRecipes)
+    setProtectedRecipes(updatedProtectedRecipes)
+    alert('Removed from List')
+  }
+
+  const addToProtectedIndex = (recipe) => {
+    if (!protectedRecipes.some((recipes) => recipes.id === recipe.id)) {
+      const recipeWithUserId = { ...recipe, user_id: currentUser.id }
+      setProtectedRecipes((prevRecipes) => [...prevRecipes, recipeWithUserId])
+      alert('Recipe added!')
+    } else {
+      alert('Recipe already exists!')
+    }
   }
 
   useEffect(() => {
@@ -148,11 +163,13 @@ function App() {
       <Header currentUser={currentUser} logout={logout}/>
        <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/recipes' element={<RecipeIndex recipes={recipes} />} />
+          <Route path='/recipes' element={<RecipeIndex recipes={recipes} addToProtectedIndex={addToProtectedIndex} currentUser={currentUser}/>} />
           <Route path='/recipe/:id' element={<RecipeShow recipes={recipes} deleteRecipe={deleteRecipe}/>} />
           <Route path='/editrecipe/:id' element={<RecipeEdit recipes={recipes} updateRecipe={updateRecipe}/>} />
           <Route path='/newrecipe' element={<RecipeNew createRecipe={createRecipe} currentUser={currentUser}/>} />
-          <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser} recipes={recipes} deleteRecipeProtectedIndex={deleteRecipeProtectedIndex}/>} />
+          <Route path='/myrecipes' element={<ProtectedIndex currentUser={currentUser}
+              protectedRecipes={protectedRecipes}
+              deleteRecipeProtectedIndex={deleteRecipeProtectedIndex} />} />
           <Route path='/signup' element={<SignUp signup={signup} />} />
           <Route path='/login' element={<SignIn login={login} />} />
           <Route path='/meetus' element={<Developers />} />

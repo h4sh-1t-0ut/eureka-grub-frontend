@@ -1,11 +1,15 @@
 import {React, useState}from 'react';
 import "../styles/RecipeIndex.css"
 import SearchBar from '../components/SearchBar';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle, Button } from 'reactstrap';
 
-const RecipeIndex = ({ recipes }) => {
+const RecipeIndex = ({ recipes, addToProtectedIndex, currentUser }) => {
   const [filteredRecipes, setFilteredRecipes] = useState(recipes)
+  const handleAddToProtectedIndex = (recipe) => {
+    addToProtectedIndex(recipe)
+  }
+  
 
   const handleSearchChange = (filteredResults) => {
     setFilteredRecipes(filteredResults)
@@ -14,131 +18,48 @@ const RecipeIndex = ({ recipes }) => {
   return (
     <>
     <div id="indexBody">
-    <h1>Disaster Recipes</h1>
-    <br/>
-    <SearchBar recipes={recipes} onSearchChange={handleSearchChange}/>
-    <br/>
-   
+    <SearchBar recipes={recipes} onSearchChange={handleSearchChange} classname='searchbar'/>
     <div>
      <div className="indexHeading">
-        <h2>Desserts</h2>
-        <p>HMMMMM DIABETES</p>
+        <h2>All Recipes</h2>
+        <p>List of All disaster recipes</p>
       </div>
       <br/>
       <div className="indexCards">
         {filteredRecipes.map((recipe, index) => {
-          if (recipe.course === 'Dessert') {
             return (
-             
-              <Card key={index} style={{ width: '16rem' }} outline color='dark'>
-                <img alt={recipe.name} src={recipe.recipe_image} />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    {recipe.name}
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                    Courses: {recipe.course}
-                  </CardSubtitle>
-                  <CardText>
-                    Cook Time: {recipe.cook_time}, 
-                    Servings: {recipe.servings}
-                  </CardText>
-                  <NavLink to={`/recipe/${recipe.id}`}>
-                    <Button aria-label='Disaster Info'>
-                      Disaster Info
-                    </Button>
-                  </NavLink>
-                </CardBody>
-              </Card>
-             
+               <Card key={index} style={{ width: '16rem' }} outline color='dark'>
+                 <img alt={recipe.name} src={recipe.recipe_image} />
+                 <CardBody>
+                   <CardTitle tag="h5">
+                     {recipe.name}
+                   </CardTitle>
+                   <CardSubtitle
+                     className="mb-2 text-muted"
+                     tag="h6"
+                   >
+                     Courses: {recipe.course}
+                   </CardSubtitle>
+                   <CardText>
+                     Cook Time: {recipe.cook_time}, 
+                     Servings: {recipe.servings}
+                   </CardText>
+                   <NavLink to={`/recipe/${recipe.id}`}>
+                     <Button aria-label='Disaster Info'>
+                       Disaster Info
+                     </Button>
+                   </NavLink>
+                   {currentUser && (
+                  <Button aria-label='Add to Protected Index' onClick={() => handleAddToProtectedIndex(recipe)}>
+                    Add to list
+                  </Button>
+                )}
+                 </CardBody>
+               </Card>
             )
-          }
-          return null
         })}
-      <br/>
-      </div>
-      <div className="indexHeading">
-        <h2>Belly Fillers</h2>
-        <p>Sensory indulgence unlocked</p>
-      </div>
-      <br/>
 
-      <div className="indexCards">
-        {filteredRecipes.map((recipe, index) => {
-          if (recipe.course === 'Appetizer') {
-            return (
-              <Card key={index} style={{ width: '16rem' }} outline color='dark'>
-                <img alt={recipe.name} src={recipe.recipe_image} />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    {recipe.name}
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                    Courses: {recipe.course}
-                  </CardSubtitle>
-                  <CardText>
-                    Cook Time: {recipe.cook_time}, 
-                    Servings: {recipe.servings}
-                  </CardText>
-                  <NavLink to={`/recipe/${recipe.id}`}>
-                    <Button aria-label='Disaster Info'>
-                      Disaster Info
-                    </Button>
-                  </NavLink>
-                </CardBody>
-              </Card>
-            )
-          }
-      
-          return null
-        })}
-      <br/>
       </div>
-      <div className="indexHeading">
-        <h2>Drinkies</h2>
-        <p>Boba? no boba?</p>
-      </div>
-      <br/>
-      <div className="indexCards">
-        {filteredRecipes.map((recipe, index) => {
-          if (recipe.course === "Beverage") {
-            return (
-              <Card key={index} style={{ width: '16rem' }} outline color='dark'>
-                <img alt={recipe.name} src={recipe.recipe_image} />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    {recipe.name}
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                    Courses: {recipe.course}
-                  </CardSubtitle>
-                  <CardText>
-                    Cook Time: {recipe.cook_time}, 
-                    Servings: {recipe.servings}
-                  </CardText>
-                  <NavLink to={`/recipe/${recipe.id}`}>
-                    <Button aria-label='Disaster Info'>
-                      Disaster Info
-                    </Button>
-                  </NavLink>
-                </CardBody>
-              </Card>
-            )
-          }
-          return null
-        })}
-        <br/>
-        <br/>
-    </div>
     </div>
     </div>
     </>

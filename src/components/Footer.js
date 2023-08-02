@@ -6,7 +6,7 @@ const Footer = () => {
     <>
     <div className='footer-container'>
       <div className='info'>
-        Copyright: Brandon Shinzato, Ricky Espinoza, Michael Ortega
+        &copy; Brandon Shinzato, Ricky Espinoza, Michael Ortega
       </div>
       <div className='footer-links'>
           <Link to='/contactus'>

@@ -17,6 +17,7 @@ const SearchBar = ({ recipes, onSearchChange }) => {
     <>
       <div id="searchBar">
         <input
+          id='indexNameInput'
           type="text"
           placeholder="Search Disasters"
           onChange={handleChange}

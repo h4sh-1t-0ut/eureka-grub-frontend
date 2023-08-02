@@ -1,0 +1,23 @@
+.notfound-heading {
+  color: white; /* Set the color of the text, adjust as needed */
+  text-align: center;
+  padding-top: 75px;
+}
+
+ .notfound video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.notfound {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  /* Add other styles for the container if needed */
+}

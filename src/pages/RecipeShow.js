@@ -15,8 +15,12 @@ const RecipeShow = ({ recipes, deleteRecipe }) => {
 
   return (
     <>
-      <h1>Your Recipe of Disaster</h1>
-      <div>
+      <div id="indexBody">
+    <div className="indexHeading">
+        <h2>One Disaster At a Time</h2>
+        <p>View more of this Disaster</p>
+      </div>
+      <div className="indexCards">
       {currentRecipe && 
         <Card style={{width: '16rem'}} outline color='dark'>
           <img alt={currentRecipe.name} src={currentRecipe.recipe_image}/>
@@ -44,7 +48,7 @@ const RecipeShow = ({ recipes, deleteRecipe }) => {
                   Edit
               </Button>
             </NavLink>
-            <NavLink to={'/recipes'}>
+            <NavLink to={'/'}>
               <Button aria-label='Disaster delete' onClick={() => {deleteRecipe(id)}}>
                   Delete Disaster
               </Button>
@@ -86,6 +90,7 @@ const RecipeShow = ({ recipes, deleteRecipe }) => {
           </CardBody>
         </Card>
       }
+      </div>
       </div>
     </>
   )

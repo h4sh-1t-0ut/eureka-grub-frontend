@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 /* ___________ HEADER minimum fix during style card___________ */
 
 .header {
